@@ -1,17 +1,18 @@
 import smtplib
 import ssl
 import os
-import environ
+# import environ
+import streamlit as st
 
-env = environ.Env()
-environ.Env.read_env()
+# env = environ.Env()
+# environ.Env.read_env()
 
 def send_email(message):
     host = "smtp.gmail.com"
     port = 465
 
-    USERNAME = os.environ.get('USERNAMEE')
-    PASSWORD = os.environ.get('PASSWORDD')
+    USERNAME = st.secrets["USERNAMEE"]
+    PASSWORD = st.secrets["PASSWORDD"]
     receiver = "aalvaropc@gmail.com"
     context  = ssl.create_default_context()
 
